@@ -1,5 +1,7 @@
 # jenkins-docker
 
+Docker built image is hosted here: https://registry.hub.docker.com/u/state/jenkins/
+
 Jenkins docker image. Jenkins configuration can be synced from AWS S3 bucket at
 startup.
 
