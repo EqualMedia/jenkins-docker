@@ -9,6 +9,11 @@ By default there is only one-way configuration sync, but you can set up a jenkin
 job which syncs `${JENKINS_HOME}` to the same S3 bucket, so next time you start
 this container you will have all your config loaded at startup time.
 
+If `JENKINS_HOME_S3_BUCKET_NAME` is set, bucket config will be written out to
+`/etc/jenkins-bucket-config`, which is used by
+`/srv/jenkins/jenkins_backup.sh`. So you can just simply create a jenkins job
+which runs the backup script.
+
 The image is based on Fedora base image. It has docker, git, aws cli tools and
 obviously Jenkins preinstall.
 
