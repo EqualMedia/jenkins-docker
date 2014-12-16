@@ -1,10 +1,14 @@
 FROM fedora:20
 
 RUN yum update -y -q; yum clean all
-RUN yum --enablerepo updates-testing install -y -q python-pip java-headless dejavu-sans-fonts git wget docker-io; yum clean all; pip install awscli
+RUN yum --enablerepo updates-testing install -y -q python-pip java-headless dejavu-sans-fonts git wget parallel; yum clean all; pip install awscli
 
-ENV JENKINS_VERSION 1.588
+ENV JENKINS_VERSION 1.594
 RUN yum install -y -q http://pkg.jenkins-ci.org/redhat/jenkins-${JENKINS_VERSION}-1.1.noarch.rpm
+
+ENV DOCKER_VERSION 1.3.3
+RUN wget --quiet https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_VERSION} -O /usr/local/bin/docker; \
+    chmod +x /usr/local/bin/docker
 
 ENV JENKINS_HOME /var/lib/jenkins
 
