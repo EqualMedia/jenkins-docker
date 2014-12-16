@@ -3,7 +3,7 @@ FROM fedora:20
 RUN yum update -y -q; yum clean all
 RUN yum --enablerepo updates-testing install -y -q python-pip java-headless dejavu-sans-fonts git wget parallel; yum clean all; pip install awscli
 
-ENV JENKINS_VERSION 1.588
+ENV JENKINS_VERSION 1.594
 RUN yum install -y -q http://pkg.jenkins-ci.org/redhat/jenkins-${JENKINS_VERSION}-1.1.noarch.rpm
 
 ENV DOCKER_VERSION 1.3.3
